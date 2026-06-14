@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: greatkart
+    name: cloots
     runtime: python
     buildCommand: bash build.sh
     startCommand: gunicorn greatkart.wsgi:application --log-file -
