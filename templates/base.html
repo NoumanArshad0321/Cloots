@@ -143,9 +143,22 @@
                 font-size: 1.6rem;
             }
         }
+        
+        /* ===== Dark Theme Variables ===== */
+        body.dark-mode {
+        --bg-color: #0d1117;
+        --text-color: #e6f1ff;
+        --nav-bg: #161b22;
+        --nav-link: #9aa5b1;
+        --nav-link-hover: #00ffff; /* neon cyan accent */
+        --primary-color: #00ffff; /* neon cyan */
+        }
     </style>
 </head>
+
 <body>
+    {% include "chatbot/widget.html" %}
+
 
     <!-- ========================= NAVBAR ========================= -->
     {% include 'includes/navbar.html' %}
@@ -172,6 +185,15 @@
                     .scrollIntoView({ behavior: "smooth" });
             });
         });
+
+        // Load preference
+        window.addEventListener("DOMContentLoaded", () => {
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-mode");
+            toggleBtn.querySelector("i").classList.replace("fa-moon", "fa-sun");
+        }
+        });
+
     </script>
 
 </body>

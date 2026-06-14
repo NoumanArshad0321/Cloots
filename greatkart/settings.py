@@ -41,10 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'category',
     'accounts',
+    'rest_framework',
+    'chatbot',
     'store',
     'carts',
     'orders',
-    'admin_honeypot',
 ]
 
 MIDDLEWARE = [
@@ -165,5 +166,5 @@ CSRF_TRUSTED_ORIGINS = [
 
 
 
-STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY')
-STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
+STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY', default='')
+STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY', default='')
