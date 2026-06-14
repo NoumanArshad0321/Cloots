@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: greatkart
+    runtime: python
+    buildCommand: bash build.sh
+    startCommand: gunicorn greatkart.wsgi:application --log-file -
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.9
+    autoDeploy: true
