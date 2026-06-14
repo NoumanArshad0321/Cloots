@@ -1,11 +1,8 @@
 services:
   - type: web
     name: cloots
-    runtime: python
-    buildCommand: bash build.sh
+    runtime: python-3.12
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
     startCommand: gunicorn greatkart.wsgi:application --log-file -
     plan: free
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.12.9
     autoDeploy: true
